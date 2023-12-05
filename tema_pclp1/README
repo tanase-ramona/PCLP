@@ -1,0 +1,67 @@
+Problema 1: cutii.c
+
+    Am folosit o functie de tip int, gasit, care pentru fiecare prizonier verifica n/2 cutii, mergand de la una la cealalta in functie de continutul
+precedentei asfel: continutul cutiei curente indica indicele cutiei urmatoare. Daca in n/2 pasi, urmand algoritmul, prizonierul isi gaseste cutia
+corespunzatoare atunci functia va returna 1 cu ajutorul variabilei semafor ok, alfel va returna 0.
+    Functia void cicluri afiseara ciclurile continute in sirul de cutii astfel: parcurge cutiile dupa acelasi principiu ca si functia gasit, pana
+cand continutul cutiei curente corespunde cu indicele cutiei de la care am pornit. Daca se intampla aceasta, inseamna ca am gasit un ciclu si il 
+vom afisa direct in functie. De fiecare data cand o cutie intra in formarea unui ciclu, vom marca cu 1 in vectorul gasit care initial are valoarea
+0 peste tot. Acest vector ajuta pentru a nu afisa un ciclu de mai multe ori: vom porni un nou ciclu doar daca cutia de inceput nu a facut parte din
+altul.
+    Cum numerotarea cutiiilor incepe de la 0, trecerea de la o cutie la asta se face scazand o unitate din continut, pentru a obtine indicele
+viitor.
+    In functia main vom face citirile, prizonierii retinandu-i intr-un vector pe care il vom parcurge pentru a verifica pentru fiecare prizonier
+in parte daca si-a gasit cutia, apeland functia gasit. Daca toti si-au gasit cutia variabila evadat va avea valoarea 1, altfel isi va schimba 
+valoara cu 0, la prizonierul care nu si-a gasit-o. Valoarea acestei variabile indica daca prizonierii vor fi eliberati (evadat=1), sau nu
+(evadat=0). Apoi apelam functia cicluri pentru a afisa ciclurile.
+    Durata: 60 minute
+
+Problema 2: lungi.c
+
+    Am folosit 2 functii de tip void, adunare si scadere, care primesc ca argument 2 vectori char a si b, ce contin numerele si intorc prin a
+rezultatul. Am impartit operatia pe cazuri si anume:
+1. pentru adunare (am parcurs pe rand partea imaginara de cea reala, dupa acelasi principiu)
+- daca a si b au acelasi valoarea a bitului se semn: +a+b, rezultatul va fi pozitiv (bitul de semn e 0) si adunam cifra cu cifra cele 2 numere,
+transformand rezultatul din char in int sau invers prin adaugarea sau scaderea constantei 48; -a+(-b)=-(a+b), rezultatul va fi negativ (bitul 
+de semn e 1) si urmand apoi acelasi algoritm.
+-a pozitiv si b negativ (a-b): comparam numerele, caracter cu caracter si daca a>b (a-b), rezultatul e pozitiv si afectuam sacderea a-b, altfel
+cand a<b (-(b-a)) rezultatul e negativ si efectuam scaderea b-a
+-a negativ si b pozitiv (-a+b): aceleasi etape ca pentru cazul anterior, a>b (-(a-b)), a<b (b-a)
+2. pentru scadere (am parcurs pe rand partea imaginara de cea reala, dupa acelasi principiu ca la adunare, doar ca am schimba semnul)
+    In functia main are loc citirea primului numar, iar apoi pe rand a operatiei si a celui de-al doilea numar pana la valoarea 0, in functie
+de aceasta apeland functia corespunzatoare.
+    Durata: 240 minute
+
+Problema 3: codificari.c
+
+    Am folosit functia de tip void sortare pentru a sorta in functie de codul ASCII caracterele din cheie, fara insa a modifica sirul. Am retinut
+ordinea elementelor sortate in vectorul indici.
+    In functia CodificariA vom transforma sirul astfel: vom construi o matrice care va avea pe linia 0 sirul cheie, lungimea acestui sir indicand 
+numarul de coloane; adaugam apoi pe linie caracter cu caracter elementele din sirul de transformat. Cand reconstuim sirul codificat, il citim din
+matrice pe coloane in functie de ordinea lor sortata.
+    In functia CodificariB  vom transforma sirul astfel: ii facem o copie sirului cu ajutorul functie strcpy; vom sectiona ultimele n caractere din
+sir intr-un sir aux, modificandu-le ca in enunt si pastram in copie doar caracterele nemutate; la aux vom lipi caractere ramase din sir, iar apoi
+rezultatul il punem in sirul initial.
+    In fucntia DecodificariA vom transforma sirul astfel: vom construi o matrice care va avea pe linia 0 sirul cheie, lungimea acestui sir indicand 
+numarul de coloane; adaugam apoi pe coloane caracter cu caracter elementele din sirul de transformat, in fucntie de ordinea coloanelor sortate. 
+Cand reconstuim sirul codificat, il citim din matrice pe linii.
+    In fucntia DecodificariB vom transforma sirul astfel: ii facem o copie sirului cu ajutorul functie strcpy; vom sectiona primele n caractere din
+sir intr-un sir aux, modificandu-le ca in enunt si pastram in copie doar caractere nemutate; la copie vom lipi sirul aux, iar apoi rezultatul il
+punem in sirul initial.
+    In functia main are loc citirea primului sir si apoi citim comanda si apelam functia necesara, pana la intalnirea sirului de caractere "STOP";
+    Durata: 240 minute
+
+Problema 4: masini.c
+
+    Functia tip parcurge fiecare masina si verifica ce fel de combustibil foloseste: compara campul vectorului in care se retine combustibilul cu
+cele 4 solutii posbile, si creste numarul specific. 
+    Functia consum parcurge vectorul de masini pentru fiecare masina, o marcheaza ca fiind calculata si cauta toate masinile de acelasi brand, pe 
+care le marcheaza ca fiind introduse la suma si le aduna comsumul, calculat cu formula specifica, rezultatul fiind retinul in vectorul nr_litri la 
+indicele primei masini de un anumit brand din sir. Marcam masinile introduse la suma pentru a nu le calcula consumul de mai multe ori.
+    Functia numar parcurge sirul de caractere specific numarului de inmatriculare si calculeaza numarul de caractere de la inceput, numarul de cifre
+si numarul de litere de la sfarsit. Daca aceste rezultate verifica conditiile din enunt elementul din vectorul valid de pe pozitia corespunzatoare
+masinii curente, ia valoarea 1, altfel ia valoarea 0.
+    In functia main alocam dinamic memorie unui vector ce retine n masini cu campurile din strucutra, si citim pe rand fiecare camp, in cazul
+sirurilor de carcatere alocand dinamic spatiu aferent lungimii sirului ce urmeaza a fi retinut. Citim operatia si in functie de aceasta apelam
+functia necesara. La final eliberam memoria alocata dinamic.
+    Durata: 90 minute

@@ -1,0 +1,47 @@
+Problema 1 - problema1.c
+
+Durata de lucru: 7 ore
+Am folosit functia 'subliniere' care primeste ca parametrii un text ( o linie 
+citita de la tastatura ), o cheie si un vector 'aux' in care retinem sublinierea.
+Am transformat cheile astfel incat acolo unde acestea erau alcatuite din 2 
+cuvinte, eliminam spatiul. Parcurgem fiecare linie citita de la tastatura
+caracter cu caracter si daca ne aflam la inceputul unui cuvant il comparam
+cu cheia, parcursa si ea tot caracter cu caracter, pana cand ajungem la finalul 
+cheii, caz in care subliniem cuvantul, sau avem incompatibilitatea caracterelor,
+caz in care nu am gasit cheia si trecem mai departe.
+In programul principal citim datele problemei si alocam dinamic memorie pentru
+a citi textul. Parcurgem apoi linie cu linie datele citite si pentru fiecare linie
+parcurgem cheile si le cautam cu functia 'subliniere'. La final afisam atat linia
+de text cat si sublinierea aferenta.
+La final eliberam memoria alocata dinamic.
+
+Problema 2 - peoblema2.c
+
+Durata de lucru: 5 ore
+Am definit structura pentru cuvintele din dictionar, conform cerintei si am folosit 2
+functii: 'adaugare' care adauga un cuvant nou in dictionar, alocandu-i dinamic spatiu
+in memorie si 'afis'care prmeste ca argument cuvantul pe care trebuie sa-l caute in
+dictionar si sa-l afiseze in functie de regula specifica: daca cuvantul se termina cu 
+caracterul '*', va fi afisat in forma in care este dat si in cazul in care apare in dictionar
+i se va mari numarul de aparatii, daca cuvantul se potrivește cu unul sau mai multe cuvinte
+din dicţionar, va fi afisat cel cu prioritatea cea mai mare, iar daca nu apare deloc va fi
+adaugat cu prioritatea 1.
+In programul principal citim si alocam spatiu pentru datele problemei ce urmeaza a fi citite
+si retinute. Parcurgem apoi cuvintele si le cautam pe rand in dictionar cu functia 'afis'.
+La final eliberam memoria alocata dinamic.
+
+Problema 3
+
+Durata de lucru: 6 ore
+Am folosit o functie care transforma M din baza 10 in baza 2 si retine rezultatul in vectorul
+Mbin. Am folosit un vector aux pentru a retine resturile impartirii la 2 in ordinea in care le
+aflam, iar apoi am transferat rezultatul invers in Mbin, pentru ca avem nevoie de acestea
+in ordine invers cronologica ( de la ultimul la primul rest aflat ).
+Am implementat functii pentru fiecare dintre cele 4 operatii: adunare, interschimbare rotație
+la stânga, xor. Am folosit un vector de pointeri la functii 'o', prin care am apelat functia
+data de codul operatiei.
+In programul principal am parcurs vectorul Mbin de la bitul al N * 6 + 4 - lea pana la primul
+si am citit cate 4 biti pentru numar si 2 biti pentru operatie. La fiecare pas cunosteam 2
+numere si operatia pe care trebuia sa o executam asupra lor, care la final returna rezultatul
+in primul numar ( nr1 ), urmatorul numar fiind citit in nr2. La final am transformat rezultatul
+care se afla in nr1 in baza 2, in baza 10 si am afisat. 

@@ -1,0 +1,7 @@
+
+*.in
+*.out
+*.ref
+*.sh
+tema_pclp1/tests/problema3/in/.DS_Store
+tema_pclp1/tests/problema3/ref/.DS_Store
